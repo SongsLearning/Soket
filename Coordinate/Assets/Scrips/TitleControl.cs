@@ -169,6 +169,13 @@ public class TitleControl : MonoBehaviour {
 						GlobalParam.getInstance().global_acount_id = 1;
 					}
 					GlobalParam.get().is_host = isHost;
+					
+					
+					
+				
+					Application.LoadLevel("GameScene 1");
+
+
 				}
 				break;
 

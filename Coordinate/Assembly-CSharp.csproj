@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scenes\g.cs" />
      <Compile Include="Assets\Scrips\GameSever.cs" />
      <Compile Include="Assets\Scrips\GlobalParam.cs" />
      <Compile Include="Assets\Scrips\IPacket.cs" />
