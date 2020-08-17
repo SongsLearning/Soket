@@ -63,6 +63,7 @@ public class TransportUdp {
 		
 		// 리스닝 소켓을 생성합니다.
 		try {
+			
 			m_listener = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 			m_listener.Bind(new IPEndPoint(IPAddress.Any, port));
 			m_port = port;

@@ -134,7 +134,7 @@ public class TitleControl : MonoBehaviour {
 						IPAddress[] adrList = Dns.GetHostAddresses(hostname);
 						serverAddress = adrList[0].ToString();
 					}
-					bool ret = network_.Connect(serverAddress, NetConfig.SERVER_PORT, Network.ConnectionType.TCP);
+					bool ret = network_.Connect(serverAddress, NetConfig.SERVER_PORT, Network.ConnectionType.UDP);
 					if (ret == false) {
 						// 오류 강제 이행.
 						Debug.Log("Error occured.");

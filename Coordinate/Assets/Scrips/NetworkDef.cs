@@ -7,8 +7,8 @@ public class NetConfig
 {
     public static int PLAYER_MAX = 4;
 
-    public static int SERVER_PORT = 50764;
-    public static int GAME_PORT = 50765;
+    public static int SERVER_PORT = 50767;
+    public static int GAME_PORT = 50768;
 }
 
 // 이벤트 종류.
