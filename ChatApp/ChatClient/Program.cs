@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Threading;
 
 namespace ChatClient
 {
@@ -48,12 +49,12 @@ namespace ChatClient
 				Console.ReadKey(true);
 				return;
 			}
-			
+			int i = 0;
 			// 무한반복
 			while ( true ) {
-				String msg;
+				String msg = i.ToString();
 				Console.Write("보낼 메세지 (종료키: X): ");
-				msg = Console.ReadLine().Trim();
+				//msg = Console.ReadLine().Trim();
 				
 				// 입력받은 문자열이 null 인 경우, 다시 반복문의 처음으로 돌아간다.
 				if ( String.IsNullOrEmpty(msg) )
@@ -64,9 +65,13 @@ namespace ChatClient
 					cc.StopClient();
 					return;
 				}
-				
-				// 그 외의 경우엔 메세지를 보낸다.
-				cc.SendMessage(msg);
+
+				Thread.Sleep(100);
+
+                // 그 외의 경우엔 메세지를 보낸다.
+                cc.SendMessage(msg);
+
+				i++;
 			}
 		}
 	}
