@@ -324,7 +324,7 @@ public class Network : MonoBehaviour {
 	void Dispatch()
 	{
 		while (m_isStarted == true) {
-
+			Debug.Log("hi");
 			// 클라이언트와의 수신을 처리합니다.
 			if (m_tcp != null) {			
 				// TCP의 송수신 처리.

@@ -134,7 +134,7 @@ public class TitleControl : MonoBehaviour {
 						IPAddress[] adrList = Dns.GetHostAddresses(hostname);
 						serverAddress = adrList[0].ToString();
 					}
-					bool ret = network_.Connect(serverAddress, NetConfig.SERVER_PORT, Network.ConnectionType.UDP);
+					bool ret = network_.Connect("127.0.0.1", NetConfig.SERVER_PORT, Network.ConnectionType.UDP);
 					if (ret == false) {
 						// 오류 강제 이행.
 						Debug.Log("Error occured.");
@@ -169,7 +169,6 @@ public class TitleControl : MonoBehaviour {
 						GlobalParam.getInstance().global_acount_id = 1;
 					}
 					GlobalParam.get().is_host = isHost;
-					Application.LoadLevel("GameScene 1");
 				}
 				break;
 
