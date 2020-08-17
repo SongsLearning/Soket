@@ -47,8 +47,6 @@ public class TitleControl : MonoBehaviour {
 	// 호스트 IP 주소.
 	private string		hostAddress = "";
 
-	// 게임 시작 동기화 정보 취득 상태 .
-	private bool		isReceiveSyncGameData = false;
 
 	// ================================================================ //
 	// MonoBehaviour에서 상속.
@@ -71,7 +69,6 @@ public class TitleControl : MonoBehaviour {
 		GameObject obj = new GameObject("Network");
 		if (obj != null) {
 			network_ = obj.AddComponent<Network>();
-			network_.RegisterReceiveNotification(PacketId.GameSyncInfo, OnReceiveSyncGamePacket);
 		}
 	}
 	
@@ -214,10 +211,8 @@ public class TitleControl : MonoBehaviour {
 
 		case STEP.PREPARE:
 			{
-				// 게임 시작 전 동기화 정보를 취득할 때까지 기다립니다.
-				if (isReceiveSyncGameData) {
-					this.next_step = STEP.GAME_START;
-				}
+				this.next_step = STEP.GAME_START;
+				
 			}
 			break;
 			
@@ -286,22 +281,6 @@ public class TitleControl : MonoBehaviour {
 		//
 		GUI.skin = null;
 	}
-
-	// ---------------------------------------------------------------- //
-	// 통신 처리 함수.
-
-	// 
-	public void OnReceiveSyncGamePacket(PacketId id, byte[] data)
-	{
-		Debug.Log("Receive GameSyncPacket.[TitleControl]");
-		
-		SyncGamePacket packet = new SyncGamePacket(data);
-		SyncGameData sync = packet.GetPacket();
-		
-	
-		isReceiveSyncGameData = true;
-	}
-
 	// 오류 통지.
 	void NotifyError()
 	{

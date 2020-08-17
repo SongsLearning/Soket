@@ -15,11 +15,6 @@ public class GlobalParam : MonoBehaviour {
     public	bool	is_connected		 = false;		// 통신 상대와 접속했는가?.
     public	bool	is_disconnected		 = false;		// 통신 상대와 접속 종료했는가?.
 
-    public	MovingData	local_moving;					// 로컬 캐릭터의 이사 정보.
-    public	MovingData	remote_moving;					// 리모트 캐릭터의 이사 정보.
-
-	
-
     private static	GlobalParam instance = null;
 
     public bool		fadein_start = false;
